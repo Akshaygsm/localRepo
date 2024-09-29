@@ -1,1 +1,39 @@
-<p>this is new repo file of localrepo foleder</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git prectice</title>
+</head>
+
+<body>
+    <h2>Access Front Camera</h2>
+    <video id="video" width="320" height="240" autoplay></video>
+    <button id="click-photo">Capture Photo</button>
+    <canvas id="canvas" width="320" height="240"></canvas>
+
+    <script>
+        // Get access to the camera
+        const video = document.getElementById('video');
+
+        // Access the camera
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                    video.play();
+                });
+        }
+
+        // Capture the photo
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        document.getElementById('click-photo').addEventListener('click', function () {
+            context.drawImage(video, 0, 0, 320, 240);
+        });
+    </script>
+
+</body>
+
+</html>
