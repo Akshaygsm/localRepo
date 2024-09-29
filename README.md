@@ -1,2 +1,1 @@
-# This is new readme file of localRepo folder.
-
+# this is new readme file of localRepo folder.
